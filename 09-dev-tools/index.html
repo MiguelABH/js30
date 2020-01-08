@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Dev Tools 💻</title>
+</head>
+
+<body>
+
+    <p onClick="makeGreen()">Break Down</p>
+
+    <script>
+        const dogs = [{ name: 'Snickers', age: 2 }, { name: 'Hugo', age: 8 }];
+
+        function makeGreen() {
+            const p = document.querySelector('p');
+            p.style.color = '#BADA55';
+            p.style.fontSize = '50px';
+        }
+
+        // Regular
+        // Function to print something to the browser's console
+        console.log('Hello');
+
+        // Interpolated
+        // Print variables
+        console.log('Hello, I am a %s strint', '🍲');
+
+        // Styled
+        // Use CSS to style the message
+        // '%c' is needed
+        console.log('%c I am some great text', 'font-size: 12px; background: red');
+
+        // Warning
+        // Print a message as a warning
+        console.warning('This is a warning');
+
+        // Error
+        // Print a message as an error
+        console.error('This is an error');
+
+        // Info
+        // Print a message as information
+        console.info('This is information');
+
+        // Testing
+        // Create small unit tests
+        console.assert(1 === 1, 'This is incorrect');
+
+        // Clearing
+        //  console.clear();
+
+        // Viewwing DOM elements
+        // View the properties of the selected DOM element
+        console.dir(p);
+
+        // Grouping
+        // Fold every object
+        dogs.forEach(dog => {
+            console.groupCollapsed(`${dog.name}`);
+            console.log(`${dog.name} is ${dog.age} years old`);
+            console.log(`${dog.name} is ${dog.age} dog years old`);
+            console.groupEnd(`${dog.name}`);
+        });
+
+        // Counting
+        // Prints the number of times this message has been printed
+        console.count('Hey!');
+        console.count('Hey!');
+        console.count('Hey!');
+
+        // Timing
+        // Gives the execution time of given function
+        console.time('fetching data');
+        fetch('https://api.github.com/users/miguelabh')
+            .then(data => data.json())
+            .then(data => {
+                console.timeEnd('fetching data');
+                console.log(data);
+            });
+
+        // Table
+        // Print the collection of data as a table
+        console.table(dogs);
+    </script>
+
+</body>
+
+</html>
